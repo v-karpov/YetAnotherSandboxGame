@@ -18,8 +18,18 @@ namespace YetAnotherSandboxGame.Entities.Actors
 
         public override IEnumerable<Component> CreateComponents()
         {
-            return base.CreateComponents()
-                .Append(new MonsterRunHandler(50, 15f));
+            var components = base.CreateComponents();
+            var collider = components.OfType<Collider>().FirstOrDefault();
+
+            if (collider != null)
+            {
+                Flags.SetFlagExclusive(ref collider.CollidesWithLayers, 1);
+                Flags.SetFlagExclusive(ref collider.PhysicsLayer, 0);
+                Flags.SetFlag(ref collider.PhysicsLayer, 1);
+                Flags.SetFlag(ref collider.PhysicsLayer, 2);
+            }
+
+            return components.Append(new MonsterRunHandler(50, 15f));
         }
     }
 }

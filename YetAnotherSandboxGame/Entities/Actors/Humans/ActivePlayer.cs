@@ -21,8 +21,17 @@ namespace YetAnotherSandboxGame.Entities.Actors
 
         public override IEnumerable<Component> CreateComponents()
         {
-            return base.CreateComponents()
-                .Append(new InputHandler());
+            var components = base.CreateComponents().Where(x => !(x is Collider));
+            //var collider = components.OfType<Collider>().FirstOrDefault();
+
+            //if (collider != null)
+            //{
+            //    Flags.SetFlagExclusive(ref collider.CollidesWithLayers, 0);
+            //    Flags.SetFlagExclusive(ref collider.PhysicsLayer, 0);
+            //    Flags.SetFlag(ref collider.PhysicsLayer, 2);
+            //}
+
+            return components.Append(new InputHandler());
         }
 
     }

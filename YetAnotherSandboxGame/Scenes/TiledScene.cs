@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Nez;
 using Nez.Sprites;
+using Nez.Textures;
 using Nez.Tiled;
 using YetAnotherSandboxGame.Commponents;
 using YetAnotherSandboxGame.Entities;
@@ -104,35 +105,20 @@ namespace YetAnotherSandboxGame.Scenes
             entity.Position = position;
             entity.AddComponent(new ProjectileMover());
             entity.AddComponent(new BulletController(velocity));
-
+            entity.SetScale(0.1f);
             // add a collider so we can detect intersections
             var collider = entity.AddComponent<CircleCollider>();
-            Flags.SetFlagExclusive(ref collider.CollidesWithLayers, 0);
+            Flags.SetFlagExclusive(ref collider.CollidesWithLayers, 1);
             Flags.SetFlagExclusive(ref collider.PhysicsLayer, 1);
 
 
             // load up a Texture that contains a fireball animation and setup the animation frames
-           // var texture = Content.Load<Texture2D>(Content.NinjaAdventure.plume);
-           // var subtextures = Subtexture.subtexturesFromAtlas(texture, 16, 16);
+            var texture = Content.Load<Texture2D>(Contents.Shared.bullet);
 
-           // var spriteAnimation = new SpriteAnimation(subtextures)
-           // {
-           //     loop = true,
-           //     fps = 10
-           // };
-
-           // add the Sprite to the Entity and play the animation after creating it
-           //var sprite = entity.addComponent(new Sprite<int>(subtextures[0]));
+            // add the Sprite to the Entity and play the animation after creating it
+            var sprite = entity.AddComponent(new Sprite(texture));
             // render after (under) our player who is on renderLayer 0, the default
-            //sprite.renderLayer = 1;
-            //sprite.addAnimation(0, spriteAnimation);
-            //sprite.play(0);
-
-
-            // clone the projectile and fire it off in the opposite direction
-            var newEntity = entity.Clone(entity.Position);
-            newEntity.GetComponent<BulletController>().velocity *= -1;
-            AddEntity(newEntity);
+            sprite.RenderLayer = 1;
 
             return entity;
         }

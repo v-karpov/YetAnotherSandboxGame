@@ -59,6 +59,8 @@ namespace YetAnotherSandboxGame.Commponents
             fireInput.Deregister();
         }
 
+        bool shoot = false;
+
         void IUpdatable.Update()
         {
             var move = new Vector2(xAxisInput.Value, yAxisInput.Value);
@@ -80,13 +82,13 @@ namespace YetAnotherSandboxGame.Commponents
             Entity.Rotation = rotate;
 
             // handle firing a projectile
-            if (fireInput.IsPressed)
+            if (fireInput.IsPressed && !shoot)
             {
+                shoot = true;
                 // fire a projectile in the direction we are facing
-                var dir = Vector2.Zero;
-
                 var tiledScene = Entity.Scene as TiledScene;
-                tiledScene.CreateProjectiles(Entity.Position, projectileVelocity * dir);
+
+                tiledScene.CreateProjectiles(Entity.Position, projectileVelocity);
             }
         }
     }
