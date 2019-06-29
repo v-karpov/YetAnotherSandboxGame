@@ -16,6 +16,7 @@ namespace YetAnotherSandboxGame.Entities.Actors
 
         public ActivePlayer(Vector2 postiition, Sprite spriteTexture) : base(postiition, spriteTexture)
         {
+            Name = "player";
         }
 
         public override IEnumerable<Component> CreateComponents()

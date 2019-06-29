@@ -24,7 +24,6 @@
   </ItemGroup>
   
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
-  <!--<Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />-->
   <ItemGroup>
     <Compile Remove="Content\bin\**" />
     <Compile Remove="Content\obj\**" />

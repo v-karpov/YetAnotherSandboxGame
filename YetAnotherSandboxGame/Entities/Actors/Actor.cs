@@ -9,19 +9,19 @@ namespace YetAnotherSandboxGame.Entities
 {
     public abstract class Actor : CompositeEntity
     {
-        public Sprite SpriteTexture { get; set; }
+        public Sprite Sprite { get; set; }
 
-        public Actor(Vector2 position, Sprite spriteTexture)
+        public Actor(Vector2 position, Sprite sprite)
         {
             Position = position;
-            SpriteTexture = spriteTexture;
+            Sprite = sprite;
         }
 
         public override IEnumerable<Component> CreateComponents()
         {
             yield return new CircleCollider();
             yield return new ProjectileHitDetector();
-            yield return SpriteTexture;
+            yield return Sprite;
         }
     }
 }

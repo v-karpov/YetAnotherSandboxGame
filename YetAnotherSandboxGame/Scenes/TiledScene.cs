@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Nez;
@@ -14,23 +16,44 @@ namespace YetAnotherSandboxGame.Scenes
     public class TiledScene : Scene
     {
         Entity player, tileMap;
+        TiledMap mapData;
 
         VirtualIntegerAxis xAxisInput;
         VirtualIntegerAxis yAxisInput;
 
         private Entity InitTileMap()
         {
-            var tiledMap = Content.Load<TiledMap>(Contents.Tilemaps.map);
+            mapData = Content.Load<TiledMap>(Contents.Tilemaps.map);
             var map = CreateEntity("tilemap");
-
-            var component = map.AddComponent(new TiledMapComponent(tiledMap));
+            
+            var component = map.AddComponent(new TiledMapComponent(mapData));
             component.LayerIndicesToRender = null;
             component.DebugRenderEnabled = true;
 
             return map;
         }
 
-       
+        private IEnumerable<Monster> InitMonsters(int maxCount)
+        {
+            var minDistance = 200;
+            var maxDistance = 5000;
+
+            var count = Random.NextInt(maxCount) + maxCount / 5;
+            var monsterTexture = Content.Load<Texture2D>(Contents.Actors.alien);
+
+            while (count-- > 0)
+            {
+                var sprite = new Sprite(monsterTexture);
+                var position = new Vector2(Random.NextInt(mapData.WidthInPixels), Random.NextInt(mapData.HeightInPixels));
+
+                var monster = new Monster(position, sprite)
+                    .InitComponents()
+                    .SetScale(0.25f);
+                AddEntity(monster);
+
+                yield return monster;
+            }
+        }
 
         private Actor InitPlayer()
         {
@@ -40,9 +63,10 @@ namespace YetAnotherSandboxGame.Scenes
             var sprite = new Sprite(texture);
             sprite.Origin = new Vector2(90, 185);
 
-            var player = new ActivePlayer(position, sprite).InitComponents();
-            player.Scale = scale;
-
+            var player = new ActivePlayer(position, sprite)
+                .InitComponents()
+                .SetScale(scale);
+            
             AddEntity(player);
 
             return player;
@@ -61,7 +85,9 @@ namespace YetAnotherSandboxGame.Scenes
 
             tileMap = InitTileMap();
             player = InitPlayer();
-                   
+
+            var monsters = InitMonsters(Random.NextInt(25) + 10).ToList();
+
             Camera.Entity.AddComponent(new FollowCamera(player));
         }
 

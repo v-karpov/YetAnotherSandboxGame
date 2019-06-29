@@ -29,10 +29,6 @@ namespace YetAnotherSandboxGame.Commponents
             setupInput();
         }
 
-        public bool Enabled => true;
-
-        public int UpdateOrder => throw new NotImplementedException();
-
         public void OnTriggerEnter(Collider other, Collider local)
         {
             Debug.Log("triggerEnter: {0}", other.Entity.Name);
@@ -40,7 +36,7 @@ namespace YetAnotherSandboxGame.Commponents
 
         public void OnTriggerExit(Collider other, Collider local)
         {
-            throw new NotImplementedException();
+            
         }
 
         void setupInput()
