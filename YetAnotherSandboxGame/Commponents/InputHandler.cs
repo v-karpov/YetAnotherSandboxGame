@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Nez;
+using YetAnotherSandboxGame.Scenes;
 
 namespace YetAnotherSandboxGame.Commponents
 {
@@ -16,6 +17,10 @@ namespace YetAnotherSandboxGame.Commponents
 
         VirtualIntegerAxis xAxisInput;
         VirtualIntegerAxis yAxisInput;
+
+        VirtualButton fireInput;
+
+        Vector2 projectileVelocity = new Vector2(175);
 
         public override void OnAddedToEntity()
         {
@@ -30,7 +35,7 @@ namespace YetAnotherSandboxGame.Commponents
 
         public void OnTriggerEnter(Collider other, Collider local)
         {
-            throw new NotImplementedException();
+            Debug.Log("triggerEnter: {0}", other.Entity.Name);
         }
 
         public void OnTriggerExit(Collider other, Collider local)
@@ -40,6 +45,10 @@ namespace YetAnotherSandboxGame.Commponents
 
         void setupInput()
         {
+            // setup input for shooting a fireball. we will allow z on the keyboard or a on the gamepad
+            fireInput = new VirtualButton();
+            fireInput.Nodes.Add(new Nez.VirtualButton.MouseLeftButton());
+
             // horizontal input from dpad, left stick or keyboard left/right
             xAxisInput = new VirtualIntegerAxis();
             xAxisInput.Nodes.Add(new Nez.VirtualAxis.KeyboardKeys(VirtualInput.OverlapBehavior.TakeNewer, Keys.A, Keys.D));
@@ -47,6 +56,11 @@ namespace YetAnotherSandboxGame.Commponents
             // vertical input from dpad, left stick or keyboard up/down
             yAxisInput = new VirtualIntegerAxis();
             yAxisInput.Nodes.Add(new Nez.VirtualAxis.KeyboardKeys(VirtualInput.OverlapBehavior.TakeNewer, Keys.W, Keys.S));
+        }
+
+        public override void OnRemovedFromEntity()
+        {
+            fireInput.Deregister();
         }
 
         void IUpdatable.Update()
@@ -69,6 +83,15 @@ namespace YetAnotherSandboxGame.Commponents
 
             Entity.Rotation = rotate;
 
+            // handle firing a projectile
+            if (fireInput.IsPressed)
+            {
+                // fire a projectile in the direction we are facing
+                var dir = Vector2.Zero;
+
+                var tiledScene = Entity.Scene as TiledScene;
+                tiledScene.CreateProjectiles(Entity.Position, projectileVelocity * dir);
+            }
         }
     }
 }

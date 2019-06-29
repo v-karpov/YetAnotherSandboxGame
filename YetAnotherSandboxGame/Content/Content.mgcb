@@ -17,6 +17,18 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Actors/Alien.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Actors/Alien.png
+
 #begin Actors/Player.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -28,6 +40,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Actors/Player.png
+
+#begin Shared/bullet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Shared/bullet.png
 
 #begin Shared/moon.png
 /importer:TextureImporter
