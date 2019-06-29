@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Nez;
 using Nez.Sprites;
+using YetAnotherSandboxGame.Commponents;
 
 namespace YetAnotherSandboxGame.Entities
 {
