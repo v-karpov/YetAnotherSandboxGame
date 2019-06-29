@@ -20,6 +20,7 @@
     <ProjectReference Include="..\Nez\Nez.Portable\Nez.csproj" />
     <ProjectReference Include="..\Parquet\ParquetClassLibrary\Parquet.csproj" />
     <PackageReference Include="morelinq" Version="3.1.1" />
+    <PackageReference Include="CSharpFunctionalExtensions" Version="1.18.2" />
   </ItemGroup>
   
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
@@ -93,5 +94,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\" />
+    <Folder Include="Scenes\Gameplay\" />
   </ItemGroup>
 </Project>

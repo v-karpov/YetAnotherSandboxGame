@@ -31,7 +31,7 @@ namespace YetAnotherSandboxGame.Scenes
 
        
 
-        private void InitPlayer()
+        private Actor InitPlayer()
         {
             var position = new Vector2(200, 200);
             var scale = new Vector2(.5f, .5f);
@@ -39,11 +39,12 @@ namespace YetAnotherSandboxGame.Scenes
             var sprite = new Sprite(texture);
             sprite.Origin = new Vector2(90, 185);
 
-            player = new ActivePlayer(position, sprite).InitComponents();
+            var player = new ActivePlayer(position, sprite).InitComponents();
             player.Scale = scale;
 
             AddEntity(player);
 
+            return player;
         }
 
         public override void Update()
@@ -58,8 +59,8 @@ namespace YetAnotherSandboxGame.Scenes
             SetDesignResolution(1280, 720, SceneResolutionPolicy.BestFit);
 
             tileMap = InitTileMap();
-            InitPlayer();
-
+            player = InitPlayer();
+                   
             Camera.Entity.AddComponent(new FollowCamera(player));
         }
     }

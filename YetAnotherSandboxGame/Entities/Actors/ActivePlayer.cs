@@ -18,7 +18,7 @@ namespace YetAnotherSandboxGame.Entities.Actors
         {
         }
 
-        protected override IEnumerable<Component> CreateComponents()
+        public override IEnumerable<Component> CreateComponents()
         {
             return base.CreateComponents()
                 .Append(new InputHandler());

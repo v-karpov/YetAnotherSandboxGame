@@ -17,7 +17,7 @@ namespace YetAnotherSandboxGame.Entities
             SpriteTexture = spriteTexture;
         }
 
-        protected override IEnumerable<Component> CreateComponents()
+        public override IEnumerable<Component> CreateComponents()
         {
             yield return new CircleCollider();
             yield return new ProjectileHitDetector();
