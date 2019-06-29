@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YetAnotherSandboxGame", "YetAnotherSandboxGame.csproj", "{4E758CBB-7BC2-4982-8A2A-0ABDF2E8039E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nez", "Nez\Nez.Portable\Nez.csproj", "{CD308BA8-ED1D-44F6-845C-19154DDD91EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E758CBB-7BC2-4982-8A2A-0ABDF2E8039E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E758CBB-7BC2-4982-8A2A-0ABDF2E8039E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E758CBB-7BC2-4982-8A2A-0ABDF2E8039E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E758CBB-7BC2-4982-8A2A-0ABDF2E8039E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD308BA8-ED1D-44F6-845C-19154DDD91EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD308BA8-ED1D-44F6-845C-19154DDD91EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD308BA8-ED1D-44F6-845C-19154DDD91EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD308BA8-ED1D-44F6-845C-19154DDD91EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8634B3CD-5B76-4EF6-8F96-A7BD523B5CEF}
+	EndGlobalSection
+EndGlobal
