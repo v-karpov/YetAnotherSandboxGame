@@ -18,6 +18,7 @@
       <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll</HintPath>
     </Reference>
     <ProjectReference Include="..\Nez\Nez.Portable\Nez.csproj" />
+    <ProjectReference Include="..\Parquet\ParquetClassLibrary\Parquet.csproj" />
     <PackageReference Include="morelinq" Version="3.1.1" />
   </ItemGroup>
   
