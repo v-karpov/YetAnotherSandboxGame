@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Nez;
 using Nez.Sprites;
 using Nez.Tiled;
@@ -16,6 +12,9 @@ namespace YetAnotherSandboxGame.Scenes
     public class TiledScene : Scene
     {
         Entity player, tileMap;
+
+        VirtualIntegerAxis xAxisInput;
+        VirtualIntegerAxis yAxisInput;
 
         private Entity InitTileMap()
         {
@@ -29,10 +28,41 @@ namespace YetAnotherSandboxGame.Scenes
             return map;
         }
 
-        private Entity InitPlayer()
+        void setupInput()
         {
-            return new Player(new Vector2(-100, -100), Content.Load<Texture2D>(Contents.Actors.player))
-                .InitComponents();
+            // horizontal input from dpad, left stick or keyboard left/right
+            xAxisInput = new VirtualIntegerAxis();
+            xAxisInput.Nodes.Add(new Nez.VirtualAxis.KeyboardKeys(VirtualInput.OverlapBehavior.TakeNewer, Keys.Left, Keys.Right));
+
+            // vertical input from dpad, left stick or keyboard up/down
+            yAxisInput.Nodes.Add(new Nez.VirtualAxis.KeyboardKeys(VirtualInput.OverlapBehavior.TakeNewer, Keys.Up, Keys.Down));
+        }
+
+        private void InitPlayer()
+        {
+            var position = new Vector2(200, 200);
+            var scale = new Vector2(0.1f, 0.1f);
+            var texture = Content.Load<Texture2D>(Contents.Actors.player);
+
+            player = new Player(position, texture).InitComponents();
+            player.Scale = scale;
+
+            AddEntity(player);
+
+            //player.AddComponent(new Sprite(Content.Load<Texture2D>(Contents.Actors.player)));
+            //player.AddComponent(new ProjectileHitDetector());
+            //player.AddComponent<CircleCollider>();
+
+        }
+
+        public override void Update()
+        {
+            base.Update();
+            
+            if (Input.IsKeyDown(Microsoft.Xna.Framework.Input.Keys.W))
+            {
+                player.LocalPosition += new Vector2(1,0);
+            }
         }
 
         public override void Initialize()
@@ -42,12 +72,7 @@ namespace YetAnotherSandboxGame.Scenes
             SetDesignResolution(1280, 720, SceneResolutionPolicy.BestFit);
 
             tileMap = InitTileMap();
-            player = InitPlayer();
-
-            var moonEntity = CreateEntity("moon", new Vector2(200, 200));
-            moonEntity.AddComponent(new Sprite(Content.Load<Texture2D>(Contents.Shared.moon)));
-            moonEntity.AddComponent(new ProjectileHitDetector());
-            moonEntity.AddComponent<CircleCollider>();
+            InitPlayer();
 
             Camera.Entity.AddComponent(new FollowCamera(player));
         }

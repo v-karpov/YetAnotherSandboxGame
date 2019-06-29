@@ -13,8 +13,6 @@ namespace YetAnotherSandboxGame.Entities
     {
         public Player(Vector2 postiition, Texture2D spriteTexture) : base(postiition, spriteTexture)
         {
-      
-            
         }
     }
 }
