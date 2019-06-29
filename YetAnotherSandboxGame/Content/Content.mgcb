@@ -1,8 +1,8 @@
 
 #----------------------------- Global Properties ----------------------------#
 
-/outputDir:bin/$(Platform)/net472/Content
-/intermediateDir:obj/$(Platform)/net472
+/outputDir:../bin/$(Platform)/net472/Content
+/intermediateDir:../obj/$(Platform)/net472
 /platform:DesktopGL
 /config:
 /profile:Reach
@@ -16,6 +16,18 @@
 /reference:..\..\Nez\Nez.PipelineImporter\bin\Debug\Nez.PipelineImporter.dll
 
 #---------------------------------- Content ---------------------------------#
+
+#begin Actors/Player.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Actors/Player.png
 
 #begin Shared/moon.png
 /importer:TextureImporter
