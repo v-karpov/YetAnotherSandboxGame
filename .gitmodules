@@ -1,0 +1,9 @@
+[submodule "Nez"]
+	path = Nez
+	url = https://github.com/v-karpov/Nez.git
+[submodule "Parquet"]
+	path = Parquet
+	url = https://github.com/v-karpov/Parquet.git
+[submodule "ProceduralLevelGenerator"]
+	path = ProceduralLevelGenerator
+	url = https://github.com/v-karpov/ProceduralLevelGenerator.git
