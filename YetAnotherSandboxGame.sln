@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nez.PipelineImporter", "Nez
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YetAnotherSandboxGame", "YetAnotherSandboxGame\YetAnotherSandboxGame.csproj", "{5AD6D8E9-9D42-43BA-A1BC-10B303207ADD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParquetClassLibrary", "Parquet\ParquetClassLibrary\ParquetClassLibrary.csproj", "{F516663C-259A-4FF8-8F9A-945C3D38FBCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5AD6D8E9-9D42-43BA-A1BC-10B303207ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AD6D8E9-9D42-43BA-A1BC-10B303207ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AD6D8E9-9D42-43BA-A1BC-10B303207ADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F516663C-259A-4FF8-8F9A-945C3D38FBCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F516663C-259A-4FF8-8F9A-945C3D38FBCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F516663C-259A-4FF8-8F9A-945C3D38FBCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F516663C-259A-4FF8-8F9A-945C3D38FBCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -18,6 +18,7 @@
       <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll</HintPath>
     </Reference>
     <ProjectReference Include="..\Nez\Nez.Portable\Nez.csproj" />
+    <PackageReference Include="morelinq" Version="3.1.1" />
   </ItemGroup>
   
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
@@ -88,5 +89,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>ContentPathGenerator.tt</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
 </Project>
