@@ -34,10 +34,12 @@ namespace YetAnotherSandboxGame.Scenes
         private void InitPlayer()
         {
             var position = new Vector2(200, 200);
-            var scale = new Vector2(1f, 1f);
+            var scale = new Vector2(.5f, .5f);
             var texture = Content.Load<Texture2D>(Contents.Actors.player);
+            var sprite = new Sprite(texture);
+            sprite.Origin = new Vector2(90, 185);
 
-            player = new ActivePlayer(position, texture).InitComponents();
+            player = new ActivePlayer(position, sprite).InitComponents();
             player.Scale = scale;
 
             AddEntity(player);

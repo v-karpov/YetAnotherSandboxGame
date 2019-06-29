@@ -60,6 +60,15 @@ namespace YetAnotherSandboxGame.Commponents
                 mover.CalculateMovement(ref movement, out var res);
                 mover.ApplyMovement(movement);
             }
+            
+            // слежение на мышью
+            var mousePosition = Entity.Scene.Camera.MouseToWorldPoint();
+            var lookVector = mousePosition -  Entity.Position;
+
+            var rotate = Mathf.Atan2(lookVector.Y, lookVector.X) + (Mathf.Deg2Rad * 90);
+
+            Entity.Rotation = rotate;
+
         }
     }
 }

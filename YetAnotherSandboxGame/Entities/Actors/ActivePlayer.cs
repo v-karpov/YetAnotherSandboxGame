@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Nez;
+using Nez.Sprites;
 using YetAnotherSandboxGame.Commponents;
 
 namespace YetAnotherSandboxGame.Entities.Actors
@@ -13,7 +14,7 @@ namespace YetAnotherSandboxGame.Entities.Actors
     public class ActivePlayer : Player
     {
 
-        public ActivePlayer(Vector2 postiition, Texture2D spriteTexture) : base(postiition, spriteTexture)
+        public ActivePlayer(Vector2 postiition, Sprite spriteTexture) : base(postiition, spriteTexture)
         {
         }
 
